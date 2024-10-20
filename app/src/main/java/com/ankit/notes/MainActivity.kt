@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         button.setOnClickListener {
             if(txtNotes.text.isEmpty()){
                 Toast.makeText(application,"Please enter your Notes.",Toast.LENGTH_LONG).show()
-            }else {
+            } else {
                 val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")
                 val current = LocalDateTime.now().format(formatter)
                 db.insert(txtNotes.text.toString(),current)

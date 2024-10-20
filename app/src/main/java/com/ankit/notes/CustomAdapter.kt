@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class CustomAdapter(private val mList: List<NotesModel>) :
+class CustomAdapter(private val mList: List<NotesModel>,
+                    private val onItemClick: (NotesModel) -> Unit) :
     RecyclerView.Adapter<CustomAdapter.ViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomAdapter.ViewHolder {
@@ -24,12 +25,12 @@ class CustomAdapter(private val mList: List<NotesModel>) :
         holder.textNotes.text = notesModel.notes
         holder.textDate.text = notesModel.dateTime
 
+        holder.itemView.setOnClickListener { onItemClick(notesModel) }
     }
 
     override fun getItemCount(): Int {
         return mList.size
     }
-
 
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val textNotes: TextView = itemView.findViewById(R.id.txtNotes)
