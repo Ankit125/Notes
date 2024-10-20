@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
    <LinearLayout
@@ -12,22 +13,11 @@
        android:gravity="center"
        android:layout_margin="5dp">
 
-
-        <EditText
-            android:id="@+id/txtNotes"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:autofillHints="no"
-            android:hint="@string/enterNotes"
-            android:gravity="top"
-            android:scrollbars="vertical"/>
-
-         <Button
-             android:id="@+id/btnSave"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:text="@string/save" />
+       <androidx.recyclerview.widget.RecyclerView
+           android:id="@+id/recNotes"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           tools:listitem="@layout/listnotes" />
 
    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
